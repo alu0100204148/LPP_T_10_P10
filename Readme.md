@@ -10,5 +10,5 @@ Desarrollo Dirigido por Pruebas para la clase Examen
   Practica Realizada por:
   
   Alexis Hugh Lopez Waugh
-  Alvaro Suarez Chauson
+  Alvaro Suarez Chausson
 

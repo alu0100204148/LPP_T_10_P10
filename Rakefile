@@ -1,12 +1,8 @@
-task :default => :spec
+require "bundler/gem_tasks"
 
-desc "Ejecutar las espectativas de la clase Examen"
+desc "Run RSpec code examples"
 task :spec do
-  sh "rspec -I. spec/examen_spec.rb"
+  sh "bundle exec rspec spec/exam_spec.rb"
 end
 
-desc "Ejecutar con documentacion"
-task :doc do
-  sh "rspec -I. spec/examen_spec.rb --format documentation"
-end
-
+task :default => :spec
