@@ -1,43 +1,32 @@
 # -*- coding: utf-8 -*-
-require './lib/exam.rb'
+require 'rubygems'
+require 'bundler/setup'
+require 'rspec'
+require 'exam/version'
 
-describe Exam::Examen do
-  before :each do
-    @examen = Exam::Examen.new("¿De que color es el caballo blanco de santiago?" , [ 'a) Rojo', 'b) Blanco', 'c) Azul' ])
-  end
-
-  describe "# Existencia de pregunta" do
-    it "Existe una pregunta" do
-      expect(@examen.pregunta).not_to be_empty
-      
+module Exam
+  class Examen
+    attr_reader :pregunta, :respuestas
+    def initialize(pregunta, respuestas)
+      @pregunta = pregunta
+      @respuestas = respuestas
     end
-  end
 
-  describe "# Existencia de respuestas" do
-    it "Existe mas de una respuesta" do
-      expect(@examen.numero).to be > 1
+    def numero
+       return @respuestas.count
     end
-  end
 
-  describe "# Obtener pregunta" do
-    it "Se obtiene una pregunta" do
-      expect(@examen.pregunta).to match(/¿*^?/)
-      
+    def obtenerRespuestas(i)
+        @respuesta = @respuestas[i]
     end
-  end
 
-  describe "# Obtener respuestas" do
-    it "Se obtienen las respuestas" do
-      expect(@examen.obtenerRespuestas(0)).to match(/a\) /)
-      expect(@examen.obtenerRespuestas(1)).to match(/b\) /)
-      expect(@examen.obtenerRespuestas(2)).to match(/c\) /)
+    def mostrar
+      @salida =  @pregunta + "\n"
+      @respuestas.each do |resp|
+        @salida = @salida + resp + "\n"
+      end
+      return @salida
     end
-  end
 
-  describe "# Mostrar resultado" do
-    it "Se muestra una pregunta seguida de sus respuestas" do
-      expect(@examen.mostrar).to match(/\?*\?*a\)*b\)*c*\)*/) 
-    end
   end
-
 end
