@@ -92,8 +92,9 @@ describe Exam::List do
 
 end
 
-#------------------------------------------------------------------------------
 
+
+#-------------------------------------------------------------------------------------------------------
 describe Exam::Examen do
   before :each do
     @pregunta1 = Exam::Examen.new("¿Cual es la salida del siguiente codigo Ruby?/tclass Xyz/tdef pots/t@nice/tend/tend/txyz = Xyz.new/tp xyz.pots/t" , [ 'a) #<Xyz:0xa000208>', 'b) nil', 'c) 0', 'd) Ninguna de las anteriores' ])
@@ -106,51 +107,35 @@ describe Exam::Examen do
     @lista_preguntas.push(@pregunta5,@pregunta4,@pregunta3,@pregunta2,@pregunta1)
   end
 
-
-  it "La pregunta1 y sus respuestas deben coincidir" do
+  it "La preguntas y sus respuestas deben coincidir" do
     expect(@lista_preguntas.cabeza.value.pregunta).to eq("¿Cual es la salida del siguiente codigo Ruby?/tclass Xyz/tdef pots/t@nice/tend/tend/txyz = Xyz.new/tp xyz.pots/t")
     expect(@lista_preguntas.cabeza.value.obtenerRespuestas(0)).to eq('a) #<Xyz:0xa000208>')
     expect(@lista_preguntas.cabeza.value.obtenerRespuestas(1)).to eq('b) nil')
     expect(@lista_preguntas.cabeza.value.obtenerRespuestas(2)).to eq('c) 0')
     expect(@lista_preguntas.cabeza.value.obtenerRespuestas(3)).to eq('d) Ninguna de las anteriores')
-  end
 
-  it "La pregunta2 y sus respuestas deben coincidir" do
     @lista_preguntas.pop
     expect(@lista_preguntas.cabeza.value.pregunta).to eq("La siguiente definicion de un hash en Ruby es valida:/thash_raro = {/t[1, 2, 3] => Object.new(),/tHash.new => :toto/t}/t")
     expect(@lista_preguntas.cabeza.value.obtenerRespuestas(0)).to eq('a) Cierto')
     expect(@lista_preguntas.cabeza.value.obtenerRespuestas(1)).to eq('b) Falso')
-  end
 
-  it "La pregunta3 y sus respuestas deben coincidir" do
-    @lista_preguntas.pop
     @lista_preguntas.pop
     expect(@lista_preguntas.cabeza.value.pregunta).to eq('¿Cual es la salida del siguiente codigo Ruby?/tclass Array/tdef say_hi/t"HEY!"/t  end/t end/t /t p [1, "bob"].say_hi/t')
     expect(@lista_preguntas.cabeza.value.obtenerRespuestas(0)).to eq('a) 1')
     expect(@lista_preguntas.cabeza.value.obtenerRespuestas(1)).to eq('b) bob')
     expect(@lista_preguntas.cabeza.value.obtenerRespuestas(2)).to eq('c) hey!')
     expect(@lista_preguntas.cabeza.value.obtenerRespuestas(3)).to eq('d) Ninguna de las anteriores')
-  end
 
-  it "La pregunta4 y sus respuestas deben coincidir" do
-    @lista_preguntas.pop
-    @lista_preguntas.pop
     @lista_preguntas.pop
     expect(@lista_preguntas.cabeza.value.pregunta).to eq("¿Cual es el tipo del objeto en el siguiente codigo Ruby?/tclass Objeto/tend/t")
     expect(@lista_preguntas.cabeza.value.obtenerRespuestas(0)).to eq('a) Una instancia de la clase Class')
     expect(@lista_preguntas.cabeza.value.obtenerRespuestas(1)).to eq('b) Una constante')
     expect(@lista_preguntas.cabeza.value.obtenerRespuestas(2)).to eq('c) Un objeto')
     expect(@lista_preguntas.cabeza.value.obtenerRespuestas(3)).to eq('d) Ninguna de las anteriores')
-  end
 
-  it "La pregunta5 y sus respuestas deben coincidir" do
-    @lista_preguntas.pop
-    @lista_preguntas.pop
-    @lista_preguntas.pop
     @lista_preguntas.pop
     expect(@lista_preguntas.cabeza.value.pregunta).to eq("Es apropiado que una clase Tablero herede de una clase Juego./t")
     expect(@lista_preguntas.cabeza.value.obtenerRespuestas(0)).to eq('a) Cierto')
     expect(@lista_preguntas.cabeza.value.obtenerRespuestas(1)).to eq('b) Falso')
   end
-
 end
