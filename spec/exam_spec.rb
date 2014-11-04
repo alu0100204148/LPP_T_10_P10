@@ -139,3 +139,39 @@ describe Exam::Examen do
     expect(@lista_preguntas.cabeza.value.obtenerRespuestas(1)).to eq('b) Falso')
   end
 end
+
+#-------------------------------------------------------------------------------------------------------
+
+describe Exam::Examen do
+  before :each do
+    @lista = Exam::List.new
+  end
+
+  it "Se debe poder recorrer la lista empezando desde la cabeza" do
+    @lista.push(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+    expect(@lista.verDesdeCabeza).to eq('9 8 7 6 5 4 3 2 1 0 ')
+  end
+  
+  it "Se debe poder recorrer la lista empezando desde la cola" do
+    @lista.push(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+    expect(@lista.verDesdeCola).to eq('0 1 2 3 4 5 6 7 8 9 ')
+  end  
+
+  it "La preguntas y sus respuestas deben coincidir" do
+    @pregunta1 = Exam::Examen.new("¿Cual es el tipo del objeto en el siguiente c´odigo Ruby? /t class Objeto /t end", [ 'a) Una instancia de la clase Class', 'b) Una constante', 'c) Un objeto', 'd) Ninguna de las anteriores' ])
+    @pregunta2 = Exam::Preguntas.new("Es apropiado que una clase Tablero herede de una clase Juego.")
+    @lista.push(@pregunta5,@pregunta4,@pregunta3,@pregunta2,@pregunta1)
+    
+    expect(@lista.cabeza.value.pregunta).to eq("¿Cual es el tipo del objeto en el siguiente c´odigo Ruby? /t class Objeto /t end")
+    expect(@lista.cabeza.value.obtenerRespuestas(0)).to eq('a) Una instancia de la clase Class')
+    expect(@lista.cabeza.value.obtenerRespuestas(1)).to eq('b) Una constante')
+    expect(@lista.cabeza.value.obtenerRespuestas(2)).to eq('c) Un objeto')
+    expect(@lista.cabeza.value.obtenerRespuestas(3)).to eq('d) Ninguna de las anteriores')
+
+    @lista.pop
+    expect(@lista.cabeza.value.pregunta).to eq("Es apropiado que una clase Tablero herede de una clase Juego.")
+    expect(@lista.cabeza.value.obtenerRespuestas(0)).to eq('a) Cierto')
+    expect(@lista.cabeza.value.obtenerRespuestas(1)).to eq('b) Falso')
+  end
+  
+end
