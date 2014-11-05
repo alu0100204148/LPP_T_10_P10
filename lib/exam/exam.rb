@@ -7,7 +7,8 @@ require 'exam/version'
 module Exam
   class Examen
     attr_reader :pregunta, :respuestas
-    def initialize(pregunta, respuestas)
+    
+    def initialize (pregunta, respuestas)
       @pregunta = pregunta
       @respuestas = respuestas
     end
@@ -17,7 +18,7 @@ module Exam
     end
 
     def obtenerRespuestas(i)
-        @respuesta = @respuestas[i]
+      @respuesta = @respuestas[i]
     end
 
     def mostrar
@@ -29,4 +30,16 @@ module Exam
     end
 
   end
+  
+  
+  
+  class Preguntas < Examen
+      
+    def initialize (pregunta)
+      @pregunta = pregunta
+      @respuestas = ["a) Cierto", "b) Falso"]
+    end
+    
+  end
+  
 end
