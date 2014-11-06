@@ -5,4 +5,8 @@ task :spec do
   sh "bundle exec rspec spec/exam_spec.rb"
 end
 
+task :guard do
+  sh "bundle exec guard"
+end
+
 task :default => :spec
