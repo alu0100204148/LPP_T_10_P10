@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 require './lib/exam.rb'
-require './lib/list.rb'
+#require './lib/list.rb'
 
 describe Exam::Examen do
   before :each do
