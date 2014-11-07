@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 require './lib/exam.rb'
-#require './lib/list.rb'
+
 
 describe Exam::Examen do
   before :each do
@@ -172,6 +172,22 @@ describe Exam::Examen do
     expect(@lista.cabeza.value.pregunta).to eq("Es apropiado que una clase Tablero herede de una clase Juego.")
     expect(@lista.cabeza.value.obtenerRespuestas(0)).to eq('a) Cierto')
     expect(@lista.cabeza.value.obtenerRespuestas(1)).to eq('b) Falso')
+  end
+  
+  
+  it "Es pregunta1 hijo de el objeto examen" do
+    @pregunta1 = Exam::Examen.new("¿Cual es el tipo del objeto en el siguiente c´odigo Ruby? /t class Objeto /t end", [ 'a) Una instancia de la clase Class', 'b) Una constante', 'c) Un objeto', 'd) Ninguna de las anteriores' ])
+    @pregunta2 = Exam::Preguntas.new("Es apropiado que una clase Tablero herede de una clase Juego.")
+    
+    expect(@pregunta1).to be_instance_of Exam::Examen       #pregunta 1 es instancia de Examen
+    expect(@pregunta2).to be_instance_of Exam::Preguntas    #pregunta2 es instancia de Preguntas
+    
+    expect(@pregunta1).to be_a_kind_of Exam::Examen         #pregunta1 esta en la jeraquia de Examen
+    expect(@pregunta1).not_to be_a_kind_of Exam::Preguntas  #pregunta1 no esta en la jerarquia de Examen
+    
+    expect(@pregunta2).to be_a_kind_of Exam::Examen         #pregunta2 esta en la jerarquia de Examen
+    expect(@pregunta2).to be_a_kind_of Exam::Preguntas      #pregunta2 esta en la jerarquia de Preguntas
+
   end
   
 end
