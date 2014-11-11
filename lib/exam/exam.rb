@@ -28,6 +28,16 @@ module Exam
       end
       return @salida
     end
+    
+    
+    def == (objetoExamen)
+      if @pregunta == objetoExamen.pregunta && @respuestas == objetoExamen.respuestas then
+        return true
+      else
+        return false
+      end
+    end
+    
 
   end
   
