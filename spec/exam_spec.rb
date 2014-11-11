@@ -191,3 +191,27 @@ describe Exam::Examen do
   end
   
 end
+
+
+#-------------------------------------------------------------------------------------------------------
+
+describe Exam::Examen do
+  before :each do
+    @lista = Exam::List.new
+  end
+
+  it "Verifica si los objetos son iguales" do
+    @pregunta1 = Exam::Examen.new("Es apropiado que una clase Tablero herede de una clase Juego.", ["a) Cierto", "b) Falso"])
+    @pregunta2 = Exam::Preguntas.new("Es apropiado que una clase Tablero herede de una clase Juego.")
+
+    expect(@pregunta1).to eq(@pregunta2)
+  end
+  
+  it "Verifica si los objetos son diferentes" do
+    @pregunta1 = Exam::Examen.new("¿Cual es el tipo del objeto en el siguiente c´odigo Ruby? /t class Objeto /t end", [ 'a) Una instancia de la clase Class', 'b) Una constante', 'c) Un objeto', 'd) Ninguna de las anteriores' ])
+    @pregunta2 = Exam::Preguntas.new("Es apropiado que una clase Tablero herede de una clase Juego.")
+
+    expect(@pregunta1).not_to eq(@pregunta2)
+  end
+
+end
