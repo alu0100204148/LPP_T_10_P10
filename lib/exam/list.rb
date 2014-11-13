@@ -8,13 +8,16 @@ Node = Struct.new(:value, :next, :previous)
 
 module Exam
   class List
+    include Enumerable
     attr_reader :cabeza, :cola
+
 
     def initialize
       @cabeza = nil
       @cola = nil
       @numeroNodos = 0
     end
+
 
     def push(*valor)
       for i in 0...valor.length
@@ -42,6 +45,7 @@ module Exam
       @numeroNodos = @numeroNodos - 1
     end
     
+    
     def verDesdeCabeza #Muestra la lista empezando desde la cabeza
       salida = ""
       nodo = @cabeza
@@ -61,6 +65,15 @@ module Exam
         nodo = nodo.previous
       end
       return salida
+    end
+
+
+    def each
+      nodo = @cabeza
+      while nodo != nil do
+        yield nodo
+        nodo = nodo.next
+      end
     end
 
 

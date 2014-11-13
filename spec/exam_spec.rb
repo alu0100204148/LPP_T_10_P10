@@ -213,5 +213,32 @@ describe Exam::Examen do
 
     expect(@pregunta1).not_to eq(@pregunta2)
   end
+  
+end
+  
+  
+  describe Exam::Examen do
+  before :each do
+    @pregunta1 = Exam::Examen.new("¿Cual es la salida del siguiente codigo Ruby?/tclass Xyz/tdef pots/t@nice/tend/tend/txyz = Xyz.new/tp xyz.pots/t" , [ 'a) #<Xyz:0xa000208>', 'b) nil', 'c) 0', 'd) Ninguna de las anteriores' ])
+    @pregunta2 = Exam::Examen.new("La siguiente definicion de un hash en Ruby es valida:/thash_raro = {/t[1, 2, 3] => Object.new(),/tHash.new => :toto/t}/t" , [ 'a) Cierto', 'b) Falso'])
+    @pregunta3 = Exam::Examen.new('¿Cual es la salida del siguiente codigo Ruby?/tclass Array/tdef say_hi/t"HEY!"/t  end/t end/t /t p [1, "bob"].say_hi/t' , [ 'a) 1', 'b) bob', 'c) hey!' ,'d) Ninguna de las anteriores'])
+    @pregunta4 = Exam::Examen.new("¿Cual es el tipo del objeto en el siguiente codigo Ruby?/tclass Objeto/tend/t" , [ 'a) Una instancia de la clase Class', 'b) Una constante', 'c) Un objeto' , 'd) Ninguna de las anteriores'])
+    @pregunta5 = Exam::Examen.new("Es apropiado que una clase Tablero herede de una clase Juego./t" , [ 'a) Cierto', 'b) Falso'])
+
+    @lista = Exam::List.new
+    @lista.push(@pregunta5,@pregunta4,@pregunta3,@pregunta2,@pregunta1)
+  end
+
+  it "Cuenta el numero de elementos" do
+    expect(@lista.count).to eq(5)
+    @lista.pop
+    expect(@lista.count).to eq(4)
+    @lista.pop
+    expect(@lista.count).to eq(3)
+    @lista.pop
+    
+    #expect(@lista).to be_instance_of Enumerable       #pregunta1 es instancia de Examen
+    
+  end
 
 end
