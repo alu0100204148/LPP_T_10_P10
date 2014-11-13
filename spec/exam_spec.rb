@@ -236,7 +236,6 @@ end
     @lista.pop
     expect(@lista.count).to eq(3)
     @lista.pop
-  
   end
 
 end
