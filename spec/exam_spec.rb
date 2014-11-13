@@ -236,9 +236,7 @@ end
     @lista.pop
     expect(@lista.count).to eq(3)
     @lista.pop
-    
-    #expect(@lista).to be_instance_of Enumerable       #pregunta1 es instancia de Examen
-    
+  
   end
 
 end
