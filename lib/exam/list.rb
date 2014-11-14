@@ -71,7 +71,7 @@ module Exam
     def each
       nodo = @cabeza
       while nodo != nil do
-        yield nodo
+        yield nodo.value
         nodo = nodo.next
       end
     end

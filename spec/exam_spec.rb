@@ -220,6 +220,14 @@ describe Exam::Examen do
     expect(@pregunta1).not_to eq(@pregunta3)
   end
   
+    it "Verifica si una pregunta es mayor que otra" do
+    expect(@pregunta3).to be > (@pregunta2)
+  end
+  
+    it "Verifica si una pregunta es menor que otra" do
+    expect(@pregunta2).to be < (@pregunta3)
+  end
+  
 end
   
 #------------------------------  
@@ -248,6 +256,14 @@ describe Exam::Examen do
     expect(@lista.count).to eq(4)
     @lista.pop
     expect(@lista.count).to eq(3)
+  end
+  
+  it "Se busca el maximo de la lista (la pregunta mas larga)" do
+    expect(@lista.max).to eq(@pregunta2)
+  end
+  
+  it "Se busca el minimo de la lista (la pregunta mas corta)" do
+    expect(@lista.min).to eq(@pregunta5)
   end
   
 

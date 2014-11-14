@@ -30,6 +30,9 @@ module Exam
       return @salida
     end
     
+    def <=>(objetoExamen)
+      pregunta.size <=> objetoExamen.pregunta.size
+    end
     
     def == (objetoExamen)
       if @pregunta == objetoExamen.pregunta && @respuestas == objetoExamen.respuestas then
