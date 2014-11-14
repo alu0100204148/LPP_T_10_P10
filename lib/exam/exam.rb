@@ -6,6 +6,7 @@ require 'exam/version'
 
 module Exam
   class Examen
+    include Comparable
     attr_reader :pregunta, :respuestas
     
     def initialize (pregunta, respuestas)

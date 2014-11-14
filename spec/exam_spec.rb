@@ -193,31 +193,38 @@ describe Exam::Examen do
 end
 
 
+
+
 #-------------------------------------------------------------------------------------------------------
 
 describe Exam::Examen do
   before :each do
-    @lista = Exam::List.new
+    @pregunta1 = Exam::Preguntas.new("Es apropiado que una clase Tablero herede de una clase Juego.")
+    @pregunta2 = Exam::Examen.new("Es apropiado que una clase Tablero herede de una clase Juego.", ["a) Cierto", "b) Falso"])
+    @pregunta3 = Exam::Examen.new("¿Cual es el tipo del objeto en el siguiente c´odigo Ruby? /t class Objeto /t end", [ 'a) Una instancia de la clase Class', 'b) Una constante', 'c) Un objeto', 'd) Ninguna de las anteriores' ])
+
   end
-
+  
+  it "Verifica si los objetos son Comparable" do
+    expect(@pregunta1).to be_a_kind_of Comparable 
+    expect(@pregunta2).to be_a_kind_of Comparable   
+    expect(@pregunta3).to be_a_kind_of Comparable
+  end
+  
+  
   it "Verifica si los objetos son iguales" do
-    @pregunta1 = Exam::Examen.new("Es apropiado que una clase Tablero herede de una clase Juego.", ["a) Cierto", "b) Falso"])
-    @pregunta2 = Exam::Preguntas.new("Es apropiado que una clase Tablero herede de una clase Juego.")
-
     expect(@pregunta1).to eq(@pregunta2)
   end
   
   it "Verifica si los objetos son diferentes" do
-    @pregunta1 = Exam::Examen.new("¿Cual es el tipo del objeto en el siguiente c´odigo Ruby? /t class Objeto /t end", [ 'a) Una instancia de la clase Class', 'b) Una constante', 'c) Un objeto', 'd) Ninguna de las anteriores' ])
-    @pregunta2 = Exam::Preguntas.new("Es apropiado que una clase Tablero herede de una clase Juego.")
-
-    expect(@pregunta1).not_to eq(@pregunta2)
+    expect(@pregunta1).not_to eq(@pregunta3)
   end
   
 end
   
-  
-  describe Exam::Examen do
+#------------------------------  
+
+describe Exam::Examen do
   before :each do
     @pregunta1 = Exam::Examen.new("¿Cual es la salida del siguiente codigo Ruby?/tclass Xyz/tdef pots/t@nice/tend/tend/txyz = Xyz.new/tp xyz.pots/t" , [ 'a) #<Xyz:0xa000208>', 'b) nil', 'c) 0', 'd) Ninguna de las anteriores' ])
     @pregunta2 = Exam::Examen.new("La siguiente definicion de un hash en Ruby es valida:/thash_raro = {/t[1, 2, 3] => Object.new(),/tHash.new => :toto/t}/t" , [ 'a) Cierto', 'b) Falso'])
@@ -228,7 +235,13 @@ end
     @lista = Exam::List.new
     @lista.push(@pregunta5,@pregunta4,@pregunta3,@pregunta2,@pregunta1)
   end
+  
 
+  it "La clase Lista es Enumerable" do
+    expect(@lista).to be_a_kind_of Enumerable 
+  end
+  
+  
   it "Cuenta el numero de elementos" do
     expect(@lista.count).to eq(5)
     @lista.pop
@@ -236,5 +249,6 @@ end
     @lista.pop
     expect(@lista.count).to eq(3)
   end
+  
 
 end
