@@ -43,7 +43,7 @@ describe Exam::Examen do
 
 end
 
-#------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
 
 describe Exam::List do
   before :each do
@@ -160,7 +160,7 @@ describe Exam::Examen do
   it "La preguntas y sus respuestas deben coincidir" do
     @pregunta1 = Exam::Examen.new("¿Cual es el tipo del objeto en el siguiente c´odigo Ruby? /t class Objeto /t end", [ 'a) Una instancia de la clase Class', 'b) Una constante', 'c) Un objeto', 'd) Ninguna de las anteriores' ])
     @pregunta2 = Exam::Preguntas.new("Es apropiado que una clase Tablero herede de una clase Juego.")
-    @lista.push(@pregunta5,@pregunta4,@pregunta3,@pregunta2,@pregunta1)
+    @lista.push(@pregunta2,@pregunta1)
     
     expect(@lista.cabeza.value.pregunta).to eq("¿Cual es el tipo del objeto en el siguiente c´odigo Ruby? /t class Objeto /t end")
     expect(@lista.cabeza.value.obtenerRespuestas(0)).to eq('a) Una instancia de la clase Class')
@@ -268,3 +268,32 @@ describe Exam::Examen do
   
 
 end
+
+#------------------------------  
+
+describe Exam::Examen do
+  before :each do
+    @pregunta1 = Exam::Preguntas.new("Es apropiado que una clase Tablero herede de una clase Juego.")
+    @pregunta2 = Exam::Examen.new('¿Cual es la salida del siguiente codigo Ruby?/tclass Array/tdef say_hi/t"HEY!"/t  end/t end/t /t p [1, "bob"].say_hi/t' , [ 'a) 1', 'b) bob', 'c) hey!' ,'d) Ninguna de las anteriores'])
+
+    @solucion1 = 'a'
+    @solucion2 = 'd'
+    
+    @lista_soluciones = Exam::List.new
+    @lista_soluciones.push(@solucion1,@solucion2)
+
+    @lista_preguntas = Exam::List.new
+    @lista_preguntas.push(@pregunta2,@pregunta1)
+    @examen = Exam::ExamenCompleto.new(@lista_preguntas,@lista_soluciones)
+  end
+  
+  it "Un examen contiene una lista de preguntas" do
+    expect(@examen.obtenerPreguntas).to eq(@lista_preguntas)
+  end
+  
+  it "Un examen contiene una lista de soluciones" do
+    expect(@examen.obtenerSoluciones).to eq(@lista_soluciones)
+  end
+end
+
+#------------------------------  

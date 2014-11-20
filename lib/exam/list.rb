@@ -68,6 +68,21 @@ module Exam
     end
 
 
+    def obtenerValor(numero)
+      valor = ""
+      i = 0
+      nodo = @cabeza
+      while i < numero do
+        i = i + 1
+        valor = nodo.value
+        nodo = nodo.next
+      end
+      return valor
+    end
+
+
+
+
     def each
       nodo = @cabeza
       while nodo != nil do
