@@ -22,5 +22,32 @@ module Exam
       return @contenido.obtenerPregunta(numero)
     end
     
+    
+    def input(numeroPregunta, resp=0)
+      puts ""
+      print "Respuesta: "
+      STDOUT.flush
+      if resp == 0 then
+        respuesta = gets.chomp
+      else
+        respuesta = resp
+        puts respuesta
+      end
+      puts ""
+      puts ""
+      puts ""
+      puts ""
+      comparar(numeroPregunta, respuesta)
+      return true
+    end
+    
+    
+    def comparar(numeroPregunta, respuesta)
+      if respuesta == @contenido.lista_soluciones.obtenerValor(numeroPregunta) then
+        @aciertos = @aciertos + 1
+        return true
+      end
+    end
+    
   end
 end
