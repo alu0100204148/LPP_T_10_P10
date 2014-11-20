@@ -297,3 +297,50 @@ describe Exam::Examen do
 end
 
 #------------------------------  
+
+describe Exam::Examen do
+  before :each do
+    @pregunta1 = Exam::Preguntas.new("Es apropiado que una clase Tablero herede de una clase Juego.")
+    @pregunta2 = Exam::Examen.new('Cual es la salida del siguiente codigo Ruby?/tclass Array/tdef say_hi/t"HEY!"/t  end/t end/t /t p [1, "bob"].say_hi/t' , [ 'a) 1', 'b) bob', 'c) hey!' ,'d) Ninguna de las anteriores'])
+
+    @solucion1 = 'a'
+    @solucion2 = 'd'
+    
+    @lista_soluciones = Exam::List.new
+    @lista_soluciones.push(@solucion2, @solucion1)
+
+    @lista_preguntas = Exam::List.new
+    @lista_preguntas.push(@pregunta2, @pregunta1)
+    
+    @examen = Exam::ExamenCompleto.new(@lista_preguntas, @lista_soluciones)
+    
+    @ui = Exam::UI.new(@examen)
+  end
+  
+  
+  it "Una UI tiene un metodo para mostrar preguntas y posibles respuestas" do
+    expect(@ui.mostrarPregunta(1)).to eq(@examen.obtenerPregunta(1))
+    expect(@ui.mostrarPregunta(2)).to eq(@examen.obtenerPregunta(2))
+  end
+  
+  it "Una UI tiene un metodo para recibir input del usuario" do
+    expect(@ui.input(1)).to eq(true)
+  end
+  
+  it "Una UI compara la respuesta con la solucion" do
+    expect(@ui.comparar(2,'d')).to eq(true)
+  end
+  
+  it "Una UI almacena el numero de aciertos" do
+    expect(@ui.aciertos).to eq(0)
+  end
+  
+  it "Una UI compara aciertos con numero de preguntas y muestra nota final" do
+    expect(@ui.nota).to eq(-1)
+  end
+  
+  it "Una UI tiene un metodo para que un usuario realice un examen" do
+    expect(@ui.examinar('a','d')).to eq(10)
+  end
+  
+end
