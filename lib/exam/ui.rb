@@ -5,6 +5,15 @@ require 'rspec'
 
 module Exam
   class UI
-      
+    attr_reader :contenido, :aciertos, :nota
+    
+    
+    def initialize (examen)
+      @contenido = examen
+      @aciertos = 0
+      @nota = -1
+      @numeroPreguntas = examen.lista_preguntas.count
+    end
+
   end
 end
