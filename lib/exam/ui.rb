@@ -48,6 +48,18 @@ module Exam
         return true
       end
     end
+
+
+    def notaFinal
+      print "Aciertos: "
+      print @aciertos
+      print " / "
+      puts @numeroPreguntas
+      print "Su nota ha sido: "
+      @nota = ((@aciertos * 10) / @numeroPreguntas)
+      print @nota
+      return @nota
+    end
     
   end
 end
