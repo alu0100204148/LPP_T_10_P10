@@ -61,5 +61,27 @@ module Exam
       return @nota
     end
     
+    
+    def cabecera
+      puts ""
+      puts ""
+      puts "El examen va a comenzar."
+      puts "  Debe responder poniendo solo el caracter de la respuesta elegida."
+      print " El examen consta de "
+      print @numeroPreguntas
+      puts " preguntas."
+    end
+    
+
+    def examinar(*resp)
+      cabecera
+      for i in 1..@numeroPreguntas
+        puts mostrarPregunta(i)
+        input(i,resp[i-1])
+      end
+      return notaFinal
+    end
+    
+    
   end
 end
