@@ -12,3 +12,5 @@ Desarrollo Dirigido por Pruebas para la clase Examen
   Alexis Hugh Lopez Waugh
   Alvaro Suarez Chausson
 
+<a href='https://coveralls.io/r/alu0100204148/LPP_T_10_P9'><img src='https://coveralls.io/repos/alu0100204148/LPP_T_10_P9/badge.png' alt='Coverage Status' /></a>
+
