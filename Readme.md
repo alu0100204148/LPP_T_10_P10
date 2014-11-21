@@ -15,6 +15,9 @@ Desarrollo Dirigido por Pruebas para la clase Examen
 
 https://travis-ci.org/alu0100204148/LPP_T_10_P9.svg?branch=master
 
+<a href='https://travis-ci.org/alu0100204148/LPP_T_10_P9'><img src='https://travis-ci.org/alu0100204148/LPP_T_10_P9.svg?branch=master' alt='Coverage Status' /></a>
+
+
 
 <a href='https://coveralls.io/r/alu0100204148/LPP_T_10_P9'><img src='https://coveralls.io/repos/alu0100204148/LPP_T_10_P9/badge.png' alt='Coverage Status' /></a>
 
