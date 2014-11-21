@@ -13,8 +13,6 @@ Desarrollo Dirigido por Pruebas para la clase Examen
   Alvaro Suarez Chausson
 
 
-https://travis-ci.org/alu0100204148/LPP_T_10_P9.svg?branch=master
-
 <a href='https://travis-ci.org/alu0100204148/LPP_T_10_P9'><img src='https://travis-ci.org/alu0100204148/LPP_T_10_P9.svg?branch=master' alt='Coverage Status' /></a>
 
 
