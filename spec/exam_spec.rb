@@ -343,4 +343,8 @@ describe Exam::Examen do
     expect(@ui.examinar('a','d')).to eq(10)
   end
   
+    it "Una UI tiene un metodo para que un usuario realice un examen" do
+    expect(@ui.examinar('b','d')).to eq(5)
+  end
+  
 end
