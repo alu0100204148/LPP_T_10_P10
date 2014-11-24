@@ -350,3 +350,29 @@ describe Exam::Examen do
   end
   
 end
+
+
+#------------------------------  
+
+describe Exam::Examen do
+  before :each do
+    @lista_preguntas = Exam::List.new
+    @lista_preguntas.push(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)  
+    
+    @lista_soluciones = Exam::List.new
+    @lista_soluciones.push('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j')
+    
+    @examen = Exam::ExamenCompleto.new(@lista_preguntas, @lista_soluciones)
+    
+    @ui = Exam::UI.new(@examen)
+  end
+  
+  it "Se da la vuelta y se comprueba desde la cabeza" do
+    expect(@ui.contenido.lista_preguntas.verDesdeCola).to eq("0 1 2 3 4 5 6 7 8 9 ")
+    expect(@ui.contenido.lista_soluciones.verDesdeCola).to eq("a b c d e f g h i j ")
+    @ui.invertir
+    expect(@ui.contenido.lista_preguntas.verDesdeCola).to eq("9 8 7 6 5 4 3 2 1 0 ")
+    expect(@ui.contenido.lista_soluciones.verDesdeCola).to eq("j i h g f e d c b a ")
+  end
+  
+end

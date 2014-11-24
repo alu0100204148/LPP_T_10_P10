@@ -5,6 +5,7 @@ require 'rspec'
 
 module Exam
   class UI
+    include Inversor
     attr_reader :contenido, :aciertos, :nota
     
     
@@ -81,6 +82,10 @@ module Exam
       end
       return notaFinal
     end
+    
+    def invertir
+      @contenido = invertirExamen(@contenido)
+    end    
     
     
   end

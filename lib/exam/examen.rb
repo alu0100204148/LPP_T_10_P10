@@ -14,17 +14,23 @@ module Exam
 
     def obtenerPreguntas
       return @lista_preguntas
-      
+    end
+    
+    def establecerPreguntas(preguntas)
+      @lista_preguntas = preguntas
     end
     
     def obtenerSoluciones
       return @lista_soluciones
     end
     
+    def establecerSoluciones(soluciones)
+      @lista_soluciones = soluciones
+    end
+    
     def obtenerPregunta(numero)
       return @lista_preguntas.obtenerValor(numero).mostrar
     end
     
-
   end
 end

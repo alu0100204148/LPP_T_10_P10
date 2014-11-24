@@ -9,7 +9,7 @@ Node = Struct.new(:value, :next, :previous)
 module Exam
   class List
     include Enumerable
-    attr_reader :cabeza, :cola
+    attr_reader :cabeza, :cola, :numeroNodos 
 
 
     def initialize
@@ -43,6 +43,19 @@ module Exam
         @cabeza = @cabeza.next
       end
       @numeroNodos = @numeroNodos - 1
+    end
+    
+        
+    def sacarValor
+      @valor = @cabeza.value
+      if @numeroNodos == 1 then
+        @cabeza = nil
+        @cola = nil
+      else
+        @cabeza = @cabeza.next
+      end
+      @numeroNodos = @numeroNodos - 1
+      return @valor
     end
     
     
