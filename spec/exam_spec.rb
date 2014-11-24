@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
+require 'spec_helper'
 require './lib/exam.rb'
+
 
 
 describe Exam::Examen do
