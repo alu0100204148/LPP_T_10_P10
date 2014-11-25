@@ -2,7 +2,7 @@ module Inversor
     
     def invertirLista(lista)
         listaTemp = Exam::List.new
-        lista.each { |elemento| listaTemp.push(elemento) }
+        lista.map { |elemento| listaTemp.push(elemento) }
         return listaTemp
     end
 
