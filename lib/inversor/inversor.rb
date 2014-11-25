@@ -7,14 +7,8 @@ module Inversor
     end
 
     def invertirExamen(examen)
-        preguntas = examen.obtenerPreguntas
-        soluciones = examen.obtenerSoluciones
-        
-        preguntas = invertirLista(preguntas)
-        soluciones = invertirLista(soluciones)
-        
-        examen.establecerPreguntas(preguntas)
-        examen.establecerSoluciones(soluciones)
+        examen.establecerPreguntas (invertirLista (examen.obtenerPreguntas))
+        examen.establecerSoluciones (invertirLista (examen.obtenerSoluciones))
         return examen
     end        
 
