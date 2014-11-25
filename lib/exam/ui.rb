@@ -5,7 +5,6 @@ require 'rspec'
 
 module Exam
   class UI
-    include Inversor
     attr_reader :contenido, :aciertos, :nota
     
     
