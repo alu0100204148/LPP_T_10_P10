@@ -113,6 +113,9 @@
 
   <section class="description">
     
+<p>Clase para representar listas enlazadas, ya sean de preguntas o de
+respuestas.</p>
+
   </section>
 
   
@@ -140,7 +143,7 @@
 
         <div class="method-description">
         
-        
+        <p>El ultimo elemento que se ha añadido a la lista, que queda en cabeza.</p>
         
         </div>
       </div>
@@ -153,7 +156,7 @@
 
         <div class="method-description">
         
-        
+        <p>El primer elemento añadido a la lista, que queda el ultimo.</p>
         
         </div>
       </div>
@@ -166,7 +169,7 @@
 
         <div class="method-description">
         
-        
+        <p>El numero de elementos que hay en una lista.</p>
         
         </div>
       </div>
@@ -194,13 +197,14 @@
 
         <div class="method-description">
           
-          
+          <p>Establece la cabeza y la cola de la lista como elementos vacios e
+inicializa el numero de elementos a cero.</p>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/exam/list.rb, line 14</span>
+            <pre><span class="ruby-comment"># File lib/exam/list.rb, line 22</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
   <span class="ruby-ivar">@cabeza</span> = <span class="ruby-keyword">nil</span>
   <span class="ruby-ivar">@cola</span> = <span class="ruby-keyword">nil</span>
@@ -237,13 +241,13 @@
 
         <div class="method-description">
           
-          
+          <p>Metodo necesario para poder utilizar el mixin Enumerable</p>
           
           
 
           
           <div class="method-source-code" id="each-source">
-            <pre><span class="ruby-comment"># File lib/exam/list.rb, line 98</span>
+            <pre><span class="ruby-comment"># File lib/exam/list.rb, line 107</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">each</span>
   <span class="ruby-identifier">nodo</span> = <span class="ruby-ivar">@cabeza</span>
   <span class="ruby-keyword">while</span> <span class="ruby-identifier">nodo</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">do</span>
@@ -274,13 +278,13 @@
 
         <div class="method-description">
           
-          
+          <p>Devuelve el valor de un nodo situado en la posicion indicada por numero.</p>
           
           
 
           
           <div class="method-source-code" id="obtenerValor-source">
-            <pre><span class="ruby-comment"># File lib/exam/list.rb, line 83</span>
+            <pre><span class="ruby-comment"># File lib/exam/list.rb, line 92</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">obtenerValor</span>(<span class="ruby-identifier">numero</span>)
   <span class="ruby-identifier">valor</span> = <span class="ruby-string">&quot;&quot;</span>
   <span class="ruby-identifier">i</span> = <span class="ruby-value">0</span>
@@ -315,13 +319,13 @@
 
         <div class="method-description">
           
-          
+          <p>Elimina el que este en la cabeza de la lista.</p>
           
           
 
           
           <div class="method-source-code" id="pop-source">
-            <pre><span class="ruby-comment"># File lib/exam/list.rb, line 37</span>
+            <pre><span class="ruby-comment"># File lib/exam/list.rb, line 46</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">pop</span>
   <span class="ruby-keyword">if</span> <span class="ruby-ivar">@numeroNodos</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-keyword">then</span>
     <span class="ruby-ivar">@cabeza</span> = <span class="ruby-keyword">nil</span>
@@ -354,13 +358,14 @@
 
         <div class="method-description">
           
-          
+          <p>Recibe una informacion, la almacena en un nodo e introduce ese nodo en  la
+cabeza de la lista.</p>
           
           
 
           
           <div class="method-source-code" id="push-source">
-            <pre><span class="ruby-comment"># File lib/exam/list.rb, line 21</span>
+            <pre><span class="ruby-comment"># File lib/exam/list.rb, line 30</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">push</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">valor</span>)
   <span class="ruby-keyword">for</span> <span class="ruby-identifier">i</span> <span class="ruby-keyword">in</span> <span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-identifier">valor</span>.<span class="ruby-identifier">length</span>
     <span class="ruby-identifier">nuevoNode</span> = <span class="ruby-constant">Node</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">valor</span>[<span class="ruby-identifier">i</span>], <span class="ruby-ivar">@nil</span>, <span class="ruby-keyword">nil</span>)
@@ -398,13 +403,13 @@
 
         <div class="method-description">
           
-          
+          <p>Devuelve el valor que este en la cabeza de la lista</p>
           
           
 
           
           <div class="method-source-code" id="sacarValor-source">
-            <pre><span class="ruby-comment"># File lib/exam/list.rb, line 48</span>
+            <pre><span class="ruby-comment"># File lib/exam/list.rb, line 57</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">sacarValor</span>
   <span class="ruby-ivar">@valor</span> = <span class="ruby-ivar">@cabeza</span>.<span class="ruby-identifier">value</span>
   <span class="ruby-keyword">if</span> <span class="ruby-ivar">@numeroNodos</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-keyword">then</span>
@@ -439,14 +444,14 @@
 
         <div class="method-description">
           
-          
+          <p>Muestra la lista empezando desde la cabeza</p>
           
           
 
           
           <div class="method-source-code" id="verDesdeCabeza-source">
-            <pre><span class="ruby-comment"># File lib/exam/list.rb, line 61</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">verDesdeCabeza</span> <span class="ruby-comment">#Muestra la lista empezando desde la cabeza</span>
+            <pre><span class="ruby-comment"># File lib/exam/list.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">verDesdeCabeza</span> 
   <span class="ruby-identifier">salida</span> = <span class="ruby-string">&quot;&quot;</span>
   <span class="ruby-identifier">nodo</span> = <span class="ruby-ivar">@cabeza</span>
   <span class="ruby-keyword">while</span> <span class="ruby-identifier">nodo</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">do</span>
@@ -478,14 +483,14 @@
 
         <div class="method-description">
           
-          
+          <p>Muestra la lista empezando por la cola</p>
           
           
 
           
           <div class="method-source-code" id="verDesdeCola-source">
-            <pre><span class="ruby-comment"># File lib/exam/list.rb, line 72</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">verDesdeCola</span> <span class="ruby-comment">#Muestra la lista empezando por la cola</span>
+            <pre><span class="ruby-comment"># File lib/exam/list.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">verDesdeCola</span> 
   <span class="ruby-identifier">salida</span> = <span class="ruby-string">&quot;&quot;</span>
   <span class="ruby-identifier">nodo</span> = <span class="ruby-ivar">@cola</span>
   <span class="ruby-keyword">while</span> <span class="ruby-identifier">nodo</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">do</span>

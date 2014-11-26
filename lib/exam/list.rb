@@ -7,18 +7,27 @@ require 'rspec'
 Node = Struct.new(:value, :next, :previous)
 
 module Exam
+  #Clase para representar listas enlazadas, ya sean de preguntas o de respuestas. 
   class List
     include Enumerable
-    attr_reader :cabeza, :cola, :numeroNodos 
+    
+    #El ultimo elemento que se ha añadido a la lista, que queda en cabeza.
+    attr_reader :cabeza
+    #El primer elemento añadido a la lista, que queda el ultimo.
+    attr_reader :cola
+    #El numero de elementos que hay en una lista.
+    attr_reader :numeroNodos
 
-
+    #Establece la cabeza y la cola de la lista como elementos vacios e inicializa el
+    #numero de elementos a cero.
     def initialize
       @cabeza = nil
       @cola = nil
       @numeroNodos = 0
     end
 
-
+    #Recibe una informacion, la almacena en un nodo e introduce ese nodo en 
+    #la cabeza de la lista.
     def push(*valor)
       for i in 0...valor.length
         nuevoNode = Node.new(valor[i], @nil, nil)
@@ -34,7 +43,7 @@ module Exam
       end
     end
 
-
+    #Elimina el que este en la cabeza de la lista.
     def pop
       if @numeroNodos == 1 then
         @cabeza = nil
@@ -45,7 +54,7 @@ module Exam
       @numeroNodos = @numeroNodos - 1
     end
     
-        
+    #Devuelve el valor que este en la cabeza de la lista
     def sacarValor
       @valor = @cabeza.value
       if @numeroNodos == 1 then
@@ -58,8 +67,8 @@ module Exam
       return @valor
     end
     
-    
-    def verDesdeCabeza #Muestra la lista empezando desde la cabeza
+    #Muestra la lista empezando desde la cabeza
+    def verDesdeCabeza 
       salida = ""
       nodo = @cabeza
       while nodo != nil do
@@ -69,8 +78,8 @@ module Exam
       return salida
     end
       
-
-    def verDesdeCola #Muestra la lista empezando por la cola
+    #Muestra la lista empezando por la cola
+    def verDesdeCola 
       salida = ""
       nodo = @cola
       while nodo != nil do
@@ -80,7 +89,7 @@ module Exam
       return salida
     end
 
-
+    #Devuelve el valor de un nodo situado en la posicion indicada por numero.
     def obtenerValor(numero)
       valor = ""
       i = 0
@@ -95,7 +104,7 @@ module Exam
 
 
 
-
+    #Metodo necesario para poder utilizar el mixin Enumerable
     def each
       nodo = @cabeza
       while nodo != nil do
