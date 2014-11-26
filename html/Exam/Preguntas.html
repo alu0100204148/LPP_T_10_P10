@@ -88,6 +88,9 @@
 
   <section class="description">
     
+<p>Esta clase representa a las preguntas de respuesta cierto o falso. Es una
+clase hija de la clase examen.</p>
+
   </section>
 
   
@@ -122,13 +125,14 @@
 
         <div class="method-description">
           
-          
+          <p>Se almacena la pregunta recibida, y tambien se crea la lista de respuestas
+con las posibilidades cierto o falso.</p>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/exam/exam.rb, line 51</span>
+            <pre><span class="ruby-comment"># File lib/exam/exam.rb, line 69</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span> (<span class="ruby-identifier">pregunta</span>)
   <span class="ruby-ivar">@pregunta</span> = <span class="ruby-identifier">pregunta</span>
   <span class="ruby-ivar">@respuestas</span> = [<span class="ruby-string">&quot;a) Cierto&quot;</span>, <span class="ruby-string">&quot;b) Falso&quot;</span>]
