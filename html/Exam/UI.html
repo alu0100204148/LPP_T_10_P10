@@ -102,6 +102,10 @@
 
   <section class="description">
     
+<p>Clase que representa la interfaz de usuario de un examen. Tiene metodos
+para mostrar informacion al usuario, para recibir informacion del usuario y
+para calcular la nota.</p>
+
   </section>
 
   
@@ -129,7 +133,7 @@
 
         <div class="method-description">
         
-        
+        <p>El numero de aciertos que se van contabilizando al resolver el examen.</p>
         
         </div>
       </div>
@@ -142,7 +146,8 @@
 
         <div class="method-description">
         
-        
+        <p>Es el examen que se esta realizando, este estara compuesto por sus listas
+de  preguntas y respuestas.</p>
         
         </div>
       </div>
@@ -155,7 +160,7 @@
 
         <div class="method-description">
         
-        
+        <p>La nota final que ha tenido el usuario al realizar el examen.</p>
         
         </div>
       </div>
@@ -183,13 +188,14 @@
 
         <div class="method-description">
           
-          
+          <p>Se establecen los valores de los atributos. El contenido es el examen, no
+hay ningun acierto y la nota no existe.</p>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/exam/ui.rb, line 10</span>
+            <pre><span class="ruby-comment"># File lib/exam/ui.rb, line 21</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span> (<span class="ruby-identifier">examen</span>)
   <span class="ruby-ivar">@contenido</span> = <span class="ruby-identifier">examen</span>
   <span class="ruby-ivar">@aciertos</span> = <span class="ruby-value">0</span>
@@ -227,13 +233,13 @@
 
         <div class="method-description">
           
-          
+          <p>Muestra la cabecera del examen con las instrucciones para el usuario.</p>
           
           
 
           
           <div class="method-source-code" id="cabecera-source">
-            <pre><span class="ruby-comment"># File lib/exam/ui.rb, line 64</span>
+            <pre><span class="ruby-comment"># File lib/exam/ui.rb, line 78</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">cabecera</span>
   <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;&quot;</span>
   <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;&quot;</span>
@@ -266,13 +272,15 @@
 
         <div class="method-description">
           
-          
+          <p>Recibe una posicion de pregunta y una respuesta y compara si la respuesta
+es la misma que la que corresponde a esa posicion. Si es la misma, se suma
+un acierto.</p>
           
           
 
           
           <div class="method-source-code" id="comparar-source">
-            <pre><span class="ruby-comment"># File lib/exam/ui.rb, line 44</span>
+            <pre><span class="ruby-comment"># File lib/exam/ui.rb, line 58</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">comparar</span>(<span class="ruby-identifier">numeroPregunta</span>, <span class="ruby-identifier">respuesta</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">respuesta</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@contenido</span>.<span class="ruby-identifier">lista_soluciones</span>.<span class="ruby-identifier">obtenerValor</span>(<span class="ruby-identifier">numeroPregunta</span>) <span class="ruby-keyword">then</span>
     <span class="ruby-ivar">@aciertos</span> = <span class="ruby-ivar">@aciertos</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
@@ -302,13 +310,14 @@
 
         <div class="method-description">
           
-          
+          <p>Metodo que se encarga de organizar la ejecucion del examen. Llama al resto
+de metodos de la clase  cuando es necesario</p>
           
           
 
           
           <div class="method-source-code" id="examinar-source">
-            <pre><span class="ruby-comment"># File lib/exam/ui.rb, line 75</span>
+            <pre><span class="ruby-comment"># File lib/exam/ui.rb, line 90</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">examinar</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">resp</span>)
   <span class="ruby-identifier">cabecera</span>
   <span class="ruby-keyword">for</span> <span class="ruby-identifier">i</span> <span class="ruby-keyword">in</span> <span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-ivar">@numeroPreguntas</span>
@@ -340,13 +349,16 @@
 
         <div class="method-description">
           
-          
+          <p>Metodo con el que el usuario introduce su respuesta. Recibe el numero de la
+pregunta y la respuesta elegida. Si no se recibe una respuesta, se espera
+que se introduzca en la consola. Despues se llama al metodo
+&#39;comparar&#39; con la posicion de la pregunta y la respuesta recibidas.</p>
           
           
 
           
           <div class="method-source-code" id="input-source">
-            <pre><span class="ruby-comment"># File lib/exam/ui.rb, line 25</span>
+            <pre><span class="ruby-comment"># File lib/exam/ui.rb, line 38</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">input</span>(<span class="ruby-identifier">numeroPregunta</span>, <span class="ruby-identifier">resp</span>=<span class="ruby-value">0</span>)
   <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;&quot;</span>
   <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;Respuesta: &quot;</span>
@@ -387,13 +399,15 @@
 
         <div class="method-description">
           
-          
+          <p>Metodo para invertir las preguntas del examen. Se llama al metodo
+invertirExamen que se encuentra en el modulo <a
+href="../Inversor.html">Inversor</a>.</p>
           
           
 
           
           <div class="method-source-code" id="invertir-source">
-            <pre><span class="ruby-comment"># File lib/exam/ui.rb, line 84</span>
+            <pre><span class="ruby-comment"># File lib/exam/ui.rb, line 101</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">invertir</span>
   <span class="ruby-ivar">@contenido</span> = <span class="ruby-identifier">invertirExamen</span>(<span class="ruby-ivar">@contenido</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -420,13 +434,14 @@
 
         <div class="method-description">
           
-          
+          <p>Devuelve contenido de la pregunta que se encuentra en la posicion
+&#39;numero&#39;.</p>
           
           
 
           
           <div class="method-source-code" id="mostrarPregunta-source">
-            <pre><span class="ruby-comment"># File lib/exam/ui.rb, line 18</span>
+            <pre><span class="ruby-comment"># File lib/exam/ui.rb, line 29</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">mostrarPregunta</span>(<span class="ruby-identifier">numero</span>)
   <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;Pregunta&quot;</span>
   <span class="ruby-identifier">puts</span> <span class="ruby-identifier">numero</span>
@@ -455,13 +470,13 @@
 
         <div class="method-description">
           
-          
+          <p>Calcula y muestra la nota final obtenida por el usuario.</p>
           
           
 
           
           <div class="method-source-code" id="notaFinal-source">
-            <pre><span class="ruby-comment"># File lib/exam/ui.rb, line 52</span>
+            <pre><span class="ruby-comment"># File lib/exam/ui.rb, line 66</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">notaFinal</span>
   <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;Aciertos: &quot;</span>
   <span class="ruby-identifier">print</span> <span class="ruby-ivar">@aciertos</span>
