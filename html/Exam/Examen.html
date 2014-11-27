@@ -187,7 +187,7 @@ de la clase.</p>
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/exam/exam.rb, line 19</span>
+            <pre><span class="ruby-comment"># File lib/exam/exam.rb, line 20</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span> (<span class="ruby-identifier">pregunta</span>, <span class="ruby-identifier">respuestas</span>)
   <span class="ruby-ivar">@pregunta</span> = <span class="ruby-identifier">pregunta</span>
   <span class="ruby-ivar">@respuestas</span> = <span class="ruby-identifier">respuestas</span>
@@ -230,7 +230,7 @@ dos objetos, lo que se compara es el tamaño de sus preguntas.</p>
 
           
           <div class="method-source-code" id="3C-3D-3E-source">
-            <pre><span class="ruby-comment"># File lib/exam/exam.rb, line 45</span>
+            <pre><span class="ruby-comment"># File lib/exam/exam.rb, line 46</span>
 <span class="ruby-keyword">def</span> <span class="ruby-operator">&lt;=&gt;</span>(<span class="ruby-identifier">objetoExamen</span>)
   <span class="ruby-identifier">pregunta</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">objetoExamen</span>.<span class="ruby-identifier">pregunta</span>.<span class="ruby-identifier">size</span>
 <span class="ruby-keyword">end</span></pre>
@@ -264,7 +264,7 @@ iguales  si su pregunta y respuestas coinciden.</p>
 
           
           <div class="method-source-code" id="3D-3D-source">
-            <pre><span class="ruby-comment"># File lib/exam/exam.rb, line 51</span>
+            <pre><span class="ruby-comment"># File lib/exam/exam.rb, line 52</span>
 <span class="ruby-keyword">def</span> <span class="ruby-operator">==</span> (<span class="ruby-identifier">objetoExamen</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-ivar">@pregunta</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">objetoExamen</span>.<span class="ruby-identifier">pregunta</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@respuestas</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">objetoExamen</span>.<span class="ruby-identifier">respuestas</span> <span class="ruby-keyword">then</span>
     <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
@@ -301,7 +301,7 @@ iguales  si su pregunta y respuestas coinciden.</p>
 
           
           <div class="method-source-code" id="mostrar-source">
-            <pre><span class="ruby-comment"># File lib/exam/exam.rb, line 35</span>
+            <pre><span class="ruby-comment"># File lib/exam/exam.rb, line 36</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">mostrar</span>
   <span class="ruby-ivar">@salida</span> =  <span class="ruby-ivar">@pregunta</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;\n&quot;</span>
   <span class="ruby-ivar">@respuestas</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">resp</span><span class="ruby-operator">|</span>
@@ -338,7 +338,7 @@ iguales  si su pregunta y respuestas coinciden.</p>
 
           
           <div class="method-source-code" id="numero-source">
-            <pre><span class="ruby-comment"># File lib/exam/exam.rb, line 25</span>
+            <pre><span class="ruby-comment"># File lib/exam/exam.rb, line 26</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">numero</span>
    <span class="ruby-keyword">return</span> <span class="ruby-ivar">@respuestas</span>.<span class="ruby-identifier">count</span>
 <span class="ruby-keyword">end</span></pre>
@@ -372,7 +372,7 @@ por i.</p>
 
           
           <div class="method-source-code" id="obtenerRespuestas-source">
-            <pre><span class="ruby-comment"># File lib/exam/exam.rb, line 30</span>
+            <pre><span class="ruby-comment"># File lib/exam/exam.rb, line 31</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">obtenerRespuestas</span>(<span class="ruby-identifier">i</span>)
   <span class="ruby-ivar">@respuesta</span> = <span class="ruby-ivar">@respuestas</span>[<span class="ruby-identifier">i</span>]
 <span class="ruby-keyword">end</span></pre>

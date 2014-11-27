@@ -83,6 +83,9 @@
 
   <section class="description">
     
+<p>Modulo que contiene las funciones que se ocupan de invertir listas de un
+examen.</p>
+
   </section>
 
   
@@ -131,13 +134,14 @@
 
         <div class="method-description">
           
-          
+          <p>Funcion que recibe un examen y llama a la funcion invertirLista tanto para
+las preguntas como para las respuestas del examen recibido.</p>
           
           
 
           
           <div class="method-source-code" id="invertirExamen-source">
-            <pre><span class="ruby-comment"># File lib/inversor/inversor.rb, line 9</span>
+            <pre><span class="ruby-comment"># File lib/inversor/inversor.rb, line 14</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">invertirExamen</span>(<span class="ruby-identifier">examen</span>)
     <span class="ruby-identifier">examen</span>.<span class="ruby-identifier">establecerPreguntas</span> (<span class="ruby-identifier">invertirLista</span> (<span class="ruby-identifier">examen</span>.<span class="ruby-identifier">obtenerPreguntas</span>))
     <span class="ruby-identifier">examen</span>.<span class="ruby-identifier">establecerSoluciones</span> (<span class="ruby-identifier">invertirLista</span> (<span class="ruby-identifier">examen</span>.<span class="ruby-identifier">obtenerSoluciones</span>))
@@ -166,13 +170,14 @@
 
         <div class="method-description">
           
-          
+          <p>Funcion que recibe una lista (de preguntas o respuestas) y devuelve otra
+con los elementos ordenados de manera inversa.</p>
           
           
 
           
           <div class="method-source-code" id="invertirLista-source">
-            <pre><span class="ruby-comment"># File lib/inversor/inversor.rb, line 3</span>
+            <pre><span class="ruby-comment"># File lib/inversor/inversor.rb, line 6</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">invertirLista</span>(<span class="ruby-identifier">lista</span>)
     <span class="ruby-identifier">listaTemp</span> = <span class="ruby-constant">Exam</span><span class="ruby-operator">::</span><span class="ruby-constant">List</span>.<span class="ruby-identifier">new</span>
     <span class="ruby-identifier">lista</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">elemento</span><span class="ruby-operator">|</span> <span class="ruby-identifier">listaTemp</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">elemento</span>) }
