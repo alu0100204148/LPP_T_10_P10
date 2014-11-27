@@ -98,6 +98,9 @@
 
   <section class="description">
     
+<p>Clase que representa un examen compiesto de una lista de preguntas y una
+lista de soluciones y los metodos para acceder a ellas.</p>
+
   </section>
 
   
@@ -125,7 +128,7 @@
 
         <div class="method-description">
         
-        
+        <p>La lista donde se alamacenan las preguntas del examen.</p>
         
         </div>
       </div>
@@ -138,7 +141,7 @@
 
         <div class="method-description">
         
-        
+        <p>La lista donde se almacenan las soluciones del examen.</p>
         
         </div>
       </div>
@@ -166,13 +169,13 @@
 
         <div class="method-description">
           
-          
+          <p>Se crea una instancia de la clase con dos listas como atributos.</p>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/exam/examen.rb, line 9</span>
+            <pre><span class="ruby-comment"># File lib/exam/examen.rb, line 17</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span> (<span class="ruby-identifier">preguntas</span>, <span class="ruby-identifier">soluciones</span>)
   <span class="ruby-ivar">@lista_preguntas</span> = <span class="ruby-identifier">preguntas</span>
   <span class="ruby-ivar">@lista_soluciones</span> = <span class="ruby-identifier">soluciones</span>
@@ -208,13 +211,13 @@
 
         <div class="method-description">
           
-          
+          <p>Cambia la lista de preguntas por otra proporcionada.</p>
           
           
 
           
           <div class="method-source-code" id="establecerPreguntas-source">
-            <pre><span class="ruby-comment"># File lib/exam/examen.rb, line 18</span>
+            <pre><span class="ruby-comment"># File lib/exam/examen.rb, line 28</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">establecerPreguntas</span>(<span class="ruby-identifier">preguntas</span>)
   <span class="ruby-ivar">@lista_preguntas</span> = <span class="ruby-identifier">preguntas</span>
 <span class="ruby-keyword">end</span></pre>
@@ -241,13 +244,13 @@
 
         <div class="method-description">
           
-          
+          <p>Cambia la lista de soluciones por otra proporcionada.</p>
           
           
 
           
           <div class="method-source-code" id="establecerSoluciones-source">
-            <pre><span class="ruby-comment"># File lib/exam/examen.rb, line 26</span>
+            <pre><span class="ruby-comment"># File lib/exam/examen.rb, line 38</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">establecerSoluciones</span>(<span class="ruby-identifier">soluciones</span>)
   <span class="ruby-ivar">@lista_soluciones</span> = <span class="ruby-identifier">soluciones</span>
 <span class="ruby-keyword">end</span></pre>
@@ -274,13 +277,14 @@
 
         <div class="method-description">
           
-          
+          <p>Devuelve una pregunta situada en la posicion &#39;numero&#39; de la lista
+de preguntas.</p>
           
           
 
           
           <div class="method-source-code" id="obtenerPregunta-source">
-            <pre><span class="ruby-comment"># File lib/exam/examen.rb, line 30</span>
+            <pre><span class="ruby-comment"># File lib/exam/examen.rb, line 44</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">obtenerPregunta</span>(<span class="ruby-identifier">numero</span>)
   <span class="ruby-keyword">return</span> <span class="ruby-ivar">@lista_preguntas</span>.<span class="ruby-identifier">obtenerValor</span>(<span class="ruby-identifier">numero</span>).<span class="ruby-identifier">mostrar</span>
 <span class="ruby-keyword">end</span></pre>
@@ -307,13 +311,13 @@
 
         <div class="method-description">
           
-          
+          <p>Devuelve la lista de preguntas del examen.</p>
           
           
 
           
           <div class="method-source-code" id="obtenerPreguntas-source">
-            <pre><span class="ruby-comment"># File lib/exam/examen.rb, line 14</span>
+            <pre><span class="ruby-comment"># File lib/exam/examen.rb, line 23</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">obtenerPreguntas</span>
   <span class="ruby-keyword">return</span> <span class="ruby-ivar">@lista_preguntas</span>
 <span class="ruby-keyword">end</span></pre>
@@ -340,13 +344,13 @@
 
         <div class="method-description">
           
-          
+          <p>Devuelve la lista de soluciones del examen.</p>
           
           
 
           
           <div class="method-source-code" id="obtenerSoluciones-source">
-            <pre><span class="ruby-comment"># File lib/exam/examen.rb, line 22</span>
+            <pre><span class="ruby-comment"># File lib/exam/examen.rb, line 33</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">obtenerSoluciones</span>
   <span class="ruby-keyword">return</span> <span class="ruby-ivar">@lista_soluciones</span>
 <span class="ruby-keyword">end</span></pre>
